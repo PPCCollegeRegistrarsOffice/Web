@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PPC Registrar's Office</title>
+
+  <!-- Google Font: Lora -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: 'Lora', serif;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .logo-title:hover {
+      opacity: 0.9;
+    }
+
+    .logo-title img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .advisory-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo-title" id="homeLogo">
+        <img src="PPC LOGO.jpg" alt="PPC Logo" />
+        <h1>PPC College Registrar's Office</h1>
+      </div>
+      <ul>
+        <li><a href="?view=home" onclick="changeView('home')">Home</a></li>
+        <li><a href="?view=about" onclick="changeView('about')">About</a></li>
+        <li><a href="?view=request" onclick="changeView('request')">Request</a></li>
+        <li><a href="?view=services" onclick="changeView('services')">Services</a></li>
+        <li><a href="?view=contact" onclick="changeView('contact')">Contact Us</a></li>
+        <li><a href="?view=faqs" onclick="changeView('faqs')">FAQs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome to the PPC College Registrar's Office</h2>
+      <p>Your official source for student records and registration support.</p>
+      <div class="advisory-box">
+  <h3>Advisory:</h3>
+  <ul>
+    <li><strong>09-OCT-2025:</strong> Advisory Sample5</li>
+    <li><strong>22-MAR-2025:</strong> Advisory Sample4</li>
+    <li><strong>10-AUG-2024:</strong> Advisory Sample3</li>
+    <li><strong>12-MAY-2024:</strong> Advisory Sample2</li>
+    <li><strong>25-JAN-2024:</strong> Advisory Sample1</li>
+  </ul>
+</div>
+
+    </section>
+
+    <section id="about">
+  <h2 style="color: #01437e; text-align: center;">Office of the College Registrar</h2>
+  <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+   The Pangasinan Polytechnic College (PPC) Registrar's Office is entrusted with maintaining the accuracy and integrity of student academic records, ensuring their availability upon request in accordance with established policies and regulations.
+  </p>
+
+  <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 2rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+    
+    <h3 style="text-align: center;">Mission</h3>
+    <p style="text-align: center;">
+      To 
+      <strong>deliver accurate, timely, and responsive academic support in records, registration, and enrollment—empowering students and supporting institutional excellence.</strong>
+    </p>
+
+    <h3 style="text-align: center;">Vision</h3>
+    <p style="text-align: center;">
+      A trusted partner in academic success through 
+      <strong>efficient, secure, and student centered services.</strong> 
+    </p>
+
+    <h3 style="text-align: center;">Goals</h3>
+    <ul style="max-width: 700px; margin: 0 auto; padding-left: 1.5rem;">
+      <li><strong>Ensure accurate and secure student records.</strong></li>
+      <li><strong>Provide fast and reliable registration and enrollment services.</strong></li>
+      <li><strong>Support student success through responsive service.</strong></li>
+      <li><strong>Embrace digital solutions for efficient academic processes.</strong></li>
+      <li><strong>Uphold integrity, transparency, and professionalism.</strong></li>
+    </ul>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+  <div style="flex: 1 1 150px; text-align: center; max-width: 200px;">
+    <img src="verify-icon.png" alt="Verification Icon" style="height: 100px;" />
+  </div>
+  <div style="flex: 1 1 150px; text-align: center; max-width: 200px;">
+    <img src="verify-icon2.png" alt="Issuance Icon" style="height: 100px;" />
+  </div>
+  <div style="flex: 1 1 150px; text-align: center; max-width: 200px;">
+    <img src="verify-icon3.png" alt="Authentication Icon" style="height: 100px;" />
+  </div>
+</div>
+
+</section>
+
+
+    <section id="request">
+      <h2 style="text-align: center;">Request Section</h2>
+      <div class="form-wrapper">
+<form id="requestForm">
+  <label for="studentName">Name (Last Name, First Name M.I.):</label>
+  <input type="text" id="studentName" name="studentName" placeholder="e.g. Dela Cruz, Juan A." required />
+
+  <label for="studentNo">Student Number:</label>
+  <input type="text" id="studentNo" name="studentNo" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="program">Program:</label>
+  <select id="program" name="program" required>
+    <option value="">Select Program</option>
+    <option value="BACHELOR OF MULTIMEDIA ARTS">BACHELOR OF MULTIMEDIA ARTS</option>
+    <option value="BACHELOR OF SCIENCE IN AGRIBUSINESS">BACHELOR OF SCIENCE IN AGRIBUSINESS</option>
+    <option value="BACHELOR OF PUBLIC ADMINISTRATION major in Local Governance">BACHELOR OF PUBLIC ADMINISTRATION major in Local Governance</option>
+    <option value="BACHELOR OF SPECIAL NEEDS EDUCATION">BACHELOR OF SPECIAL NEEDS EDUCATION</option>
+  </select>
+
+  <label for="block">Block:</label>
+  <select id="block" name="block" required>
+    <option value="">Select Block</option>
+    <option value="A">Block A</option>
+    <option value="B">Block B</option>
+    <option value="C">Block C</option>
+    <option value="D">Block D</option>
+    <option value="E">Block E</option>
+  </select>
+
+  <label for="semester">Semester:</label>
+  <select id="semester" name="semester" required>
+    <option value="">Select</option>
+    <option value="1st">1st Semester</option>
+    <option value="2nd">2nd Semester</option>
+    <option value="Summer">Summer</option>
+
+
+  <label for="year">Academic Year:</label>
+  <input type="text" id="year" name="year" placeholder="e.g. 2025-2026" required />
+
+  <label>Type of Request:</label>
+<div>
+  <label><input type="checkbox" name="requestType" value="Copy of Grades" /> Copy of Grades</label><br />
+  <label><input type="checkbox" name="requestType" value="Certificate of Enrollment" /> Certificate of Enrollment (COE)</label><br />
+  <label><input type="checkbox" name="requestType" value="Certificate of Registration" /> Certificate of Registration (COR)</label>
+</div>
+
+
+
+  <button type="submit">Submit Request</button>
+</form>
+
+      </div>
+    </section>
+
+
+    <section id="services">
+  <h2 style="text-align: center;">Forms & Services</h2>
+  <p style="text-align: center;">Downloadable forms for students and applicants</p>
+
+  <div class="form-grid">
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    <div class="form-card">
+      <span>Sample Pdf Form</span>
+      <a href="Certificate of Enrollment.pdf"  target="_blank" download><i class="download-icon">&#128229;</i></a>
+    </div>
+    
+</section>
+
+
+
+    <section id="contact">
+  <h2>Contact Us</h2>
+
+  <div class="contact-info">
+    <p><strong>Address:</strong> PPC Building, Narciso Ramos Sports and Civic Center, Alvear Street, Poblacion, Lingayen, Philippines </p>
+    <p><strong>Email:</strong> <a href="mailto:ppcregistraroffice@gmail.com">ppcregistraroffice@gmail.com</a></p>
+    <p><strong>Phone:</strong> 09XX-XXX-XXXX</p>
+    <p><strong>Office Hours:</strong> Monday to Friday (except holidays), 8:00 AM – 5:00 PM
+  </div>
+    <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.620944720555!2d120.22468687589189!3d16.03323594039903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33915f004e1aa199%3A0xf72f7ce5c5c85de4!2sPangasinan%20Polytechnic%20College!5e0!3m2!1sen!2sph!4v1750149286276!5m2!1sen!2sph" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+     allowfullscreen="" 
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+    <section id="faqs">
+      <h2>Frequently Asked Questions</h2>
+      <li>
+      <strong>How do I request a copy of my grades?</strong><br>
+      You can fill out the request form under the "Request" section of this website. Select “Copy of Grades” as your request type.
+    </li>
+
+    <li>
+      <strong>How long does it take to process requests?</strong><br>
+      Most requests are processed within 3–5 working days.
+    </li>
+
+    <li>
+      <strong>What are the office hours?</strong><br>
+      Monday to Friday, 8:00 AM – 5:00 PM (excluding holidays).
+    </li>
+
+    <li>
+      <strong>Where is the Registrar’s Office located?</strong><br>
+      At the PPC Building, Narciso Ramos Sports & Civic Center, Alvear St., Poblacion, Lingayen, Pangasinan.
+    </li>
+
+    <li>
+      <strong>Can I authorize someone to claim my documents?</strong><br>
+      Yes, but the authorized representative must present a valid ID and an authorization letter.
+    </li>
+
+    <li>
+      <strong>How do I get a Certificate of Registration (COR)?</strong><br>
+      Select "Certificate of Registration" in the Request form. Make sure your enrollment status is active.
+    </li>
+
+    <li>
+      <strong>What if I entered the wrong information in the form?</strong><br>
+      Please email us immediately at <a href="mailto:ppcregistraroffice@gmail.com">ppcregistraroffice@gmail.com</a> with your correction details.
+    </li>
+    </section>
+  </main>
+
+  <footer style="background-color: #01437e; color: white; padding: 1rem; margin-top: 2rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; gap: 1rem;">
+
+    <!-- Logo Section -->
+    <div style="flex: 1 1 200px;">
+      <img src="PPC LOGO.jpg" alt="PPC Logo" style="height: 200px; border-radius: 50%;" />
+    </div>
+
+    <!-- Address Info -->
+<div style="flex: 1 1 300px;">
+  <h3>Address</h3>
+  <p>
+    <a href="https://www.google.com/maps?q=PPC+Building,+Narciso+Ramos+Sports+and+Civic+Center,+Alvear+St.,+Poblacion,+Lingayen,+Pangasinan" 
+       target="_blank" 
+       style="color: white; text-decoration: underline;">
+      PPC Building, Narciso Ramos Sports & Civic Center,<br>Alvear St., Poblacion, Lingayen, Pangasinan
+    </a>
+  </p>
+</div>
+
+
+    <!-- About Registrar -->
+    <div style="flex: 1 1 300px;">
+      <h3>About the Registrar</h3>
+      <p>
+        The Registrar’s Office is responsible for safeguarding and maintaining the accuracy of student academic records, ensuring secure and policy-aligned access upon request.
+      </p>
+    </div>
+
+    <!-- Social Media -->
+    <div style="flex: 1 1 200px;">
+      <h3>Connect With Us</h3>
+      <p>
+        <a href="https://www.facebook.com/pangasinanpolytechniccollege" target="_blank" style="color: white; text-decoration: none;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px; vertical-align: middle; margin-right: 8px;" />
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; border-top: 1px solid #ffffff44; padding-top: 1rem;">
+    &copy; 2025 Pangasinan Polytechnic College – Registrar's Office. All rights reserved.
+  </div>
+</footer>
+
+
+
+
+  <script>
+    document.getElementById("homeLogo").addEventListener("click", function () {
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
