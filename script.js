@@ -1,96 +1,100 @@
-// Change the visible section and highlight the active nav link
-function changeView(viewId) {
-  document.querySelectorAll("main section").forEach(section => {
-    section.style.display = section.id === viewId ? "block" : "none";
-  });
 
-  document.querySelectorAll("nav ul li a").forEach(link => {
-    const hrefView = new URL(link.href).searchParams.get("view");
-    if (hrefView === viewId) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+  // Highlight active nav link and show selected section
+  function changeView(viewId) {
+    document.querySelectorAll("main section").forEach(section => {
+      section.style.display = section.id === viewId ? "block" : "none";
+    });
+
+    document.querySelectorAll("nav ul li a").forEach(link => {
+      const hrefView = new URL(link.href).searchParams.get("view");
+      link.classList.toggle("active", hrefView === viewId);
+    });
+  }
+
+  // Handle page load, navigation, and form logic
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get("view") || "home";
+    changeView(view);
+
+    // Handle logo click
+    const logo = document.getElementById("homeLogo");
+    if (logo) {
+      logo.addEventListener("click", () => {
+        changeView("home");
+        history.replaceState(null, "", "?view=home");
+      });
     }
-  });
-}
 
-// Handle page load
-window.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const view = params.get("view") || "home";
-  changeView(view);
+    // Handle 'Others' input visibility
+    const otherCheckbox = document.getElementById("otherRequest");
+    const otherInput = document.getElementById("otherRequestInput");
+    if (otherCheckbox && otherInput) {
+      otherCheckbox.addEventListener("change", () => {
+        otherInput.style.display = otherCheckbox.checked ? "block" : "none";
+        if (!otherCheckbox.checked) {
+          otherInput.value = "";
+        }
+      });
+    }
 
-  // Logo click returns to home
-  const logo = document.getElementById("homeLogo");
-  if (logo) {
-    logo.addEventListener("click", () => {
+    // Handle form submission
+    const form = document.getElementById("requestForm");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        let requestTypes = Array.from(
+          form.querySelectorAll('input[name="requestType"]:checked')
+        ).map(cb => cb.value);
+
+        // Handle 'Others' validation
+        if (requestTypes.includes("Others")) {
+          const otherText = formData.get("otherRequestDetail")?.trim();
+          if (!otherText) {
+            alert("Please specify your 'Others' request.");
+            return;
+          }
+          const index = requestTypes.indexOf("Others");
+          requestTypes[index] = `Others: ${otherText}`;
+        }
+
+        if (requestTypes.length === 0) {
+          alert("Please select at least one type of request.");
+          return;
+        }
+
+        const params = new URLSearchParams({
+  studentName: formData.get("studentName"),
+  studentNo: formData.get("studentNo"),
+  email: formData.get("email"),
+  program: formData.get("program"),
+  block: formData.get("block"),
+  semester: formData.get("semester"),
+  year: formData.get("year"),
+  requestType: requestTypes.join(", ")
+});
+
+
+        fetch("https://script.google.com/macros/s/AKfycbzKYCP73RLjRedXh7v9UcZ2eO3L1fmdBshDtlijcRxwb4UeL-WbpbaVxP9BXF4BBzW_/exec?" + params.toString())
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === "success") {
+      alert("Request submitted successfully!");
+      form.reset();
+      if (otherInput) otherInput.style.display = "none";
       changeView("home");
       history.replaceState(null, "", "?view=home");
-    });
-  }
+    } else {
+      alert("Submission failed: " + data.message);
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("An error occurred. Please try again later.");
+  });
 
-  // Handle request form submission
-  const form = document.getElementById("requestForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const name = formData.get("studentName");
-      const studentNo = formData.get("studentNo");
-      const email = formData.get("email");
-      const program = formData.get("program");
-      const block = formData.get("block");
-      const semester = formData.get("semester");
-      const year = formData.get("year");
-
-      const selectedTypes = Array.from(document.querySelectorAll('input[name="requestType"]:checked'))
-        .map(cb => cb.value);
-
-      if (selectedTypes.length === 0) {
-        alert("Please select at least one type of request.");
-        return;
-      }
-
-      const requestData = {
-        studentName: name,
-        studentNo: studentNo,
-        email: email,
-        program: program,
-        block: block,
-        semester: semester,
-        year: year,
-        requestType: selectedTypes
-      };
-
-      // Send data to Google Apps Script
-      fetch("https://script.google.com/macros/s/AKfycbwiHtz_kK5Px9x93MrpUbOq54v2p5tvE0qg1xpHutZdsZQYKknXoaA8UeNw9I8KD2nbvA/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestData)
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log("Server response:", result);
-        alert(`Thank you, ${name}. Your request has been submitted.`);
-        form.reset();
-      })
-      .catch(error => {
-        console.error("Submission error:", error);
-        alert("There was an error submitting your request. Please try again later.");
       });
-    });
-  }
-
-  // Optional services form
-  const servicesForm = document.getElementById("servicesForm");
-  if (servicesForm) {
-    servicesForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Your service request has been submitted. Thank you!");
-      this.reset();
-    });
-  }
-});
+    }
+  });
