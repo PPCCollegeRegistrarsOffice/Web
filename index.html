@@ -69,9 +69,13 @@
 
   <main>
     <section id="home">
-      <h2>Welcome to the PPC College Registrar's Office</h2>
-      <p>Your official source for student records and registration support.</p>
-      <div class="advisory-box">
+  <h2 style="text-align: center; margin: 3rem 0 1.1rem;"> Welcome to the PPC College Registrar's Office </h2>
+  <p style="font-size: 1.25rem; margin: 1.5rem 0;">
+  Your official source for student records and registration support.
+</p>
+
+  <div class="advisory-box">
+
   <h3>Advisory:</h3>
   <ul>
     <li><strong>09-OCT-2025:</strong> Advisory Sample5</li>
@@ -129,7 +133,7 @@
 
 
     <section id="request">
-      <h2 style="text-align: center;">Request Section</h2>
+      <h2 style="text-align: center; margin: 3rem 0 1.1rem;"> Request Section </h2>
       <div class="form-wrapper">
 <form id="requestForm">
   <label for="studentName">Name (Last Name, First Name M.I.):</label>
@@ -166,6 +170,7 @@
     <option value="1st">1st Semester</option>
     <option value="2nd">2nd Semester</option>
     <option value="Summer">Summer</option>
+      </select>
 
 
   <label for="year">Academic Year:</label>
@@ -175,10 +180,18 @@
 <div>
   <label><input type="checkbox" name="requestType" value="Copy of Grades" /> Copy of Grades</label><br />
   <label><input type="checkbox" name="requestType" value="Certificate of Enrollment" /> Certificate of Enrollment (COE)</label><br />
-  <label><input type="checkbox" name="requestType" value="Certificate of Registration" /> Certificate of Registration (COR)</label>
+  <label><input type="checkbox" name="requestType" value="Certificate of Registration" /> Certificate of Registration (COR)</label><br />
+  <label>
+    <input type="checkbox" id="otherRequest" name="requestType" value="Others" />
+    Others (please specify):
+  </label>
+  <textarea
+    id="otherRequestInput"
+    name="otherRequestDetail"
+    placeholder="Specify other request here..."
+    style="display: none; margin-top: 0.5rem; width: 95.5%; height: 50px; padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; font-family: 'Lora', serif;"
+  ></textarea>
 </div>
-
-
 
   <button type="submit">Submit Request</button>
 </form>
@@ -238,7 +251,10 @@
 
 
     <section id="contact">
-  <h2>Contact Us</h2>
+ <h2 style="text-align: center; margin: 3rem 0;">Contact Us</h2>
+  <div class="contact-info">
+
+
 
   <div class="contact-info">
     <p><strong>Address:</strong> PPC Building, Narciso Ramos Sports and Civic Center, Alvear Street, Poblacion, Lingayen, Philippines </p>
@@ -246,6 +262,8 @@
     <p><strong>Phone:</strong> 09XX-XXX-XXXX</p>
     <p><strong>Office Hours:</strong> Monday to Friday (except holidays), 8:00 AM – 5:00 PM
   </div>
+
+  
     <div class="map-container">
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.620944720555!2d120.22468687589189!3d16.03323594039903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33915f004e1aa199%3A0xf72f7ce5c5c85de4!2sPangasinan%20Polytechnic%20College!5e0!3m2!1sen!2sph!4v1750149286276!5m2!1sen!2sph" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
@@ -256,8 +274,8 @@
   </div>
 </section>
 
-    <section id="faqs">
-      <h2>Frequently Asked Questions</h2>
+    <section id="faqs"> 
+      <h2 style="text-align: center;">Frequently Asked Questions</h2>
       <li>
       <strong>How do I request a copy of my grades?</strong><br>
       You can fill out the request form under the "Request" section of this website. Select “Copy of Grades” as your request type.
@@ -293,10 +311,11 @@
       Please email us immediately at <a href="mailto:ppcregistraroffice@gmail.com">ppcregistraroffice@gmail.com</a> with your correction details.
     </li>
     </section>
+    
   </main>
 
-  <footer style="background-color: #01437e; color: white; padding: 1rem; margin-top: 2rem;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; gap: 1rem;">
+  <footer style="background-color: #01437e; color: white; padding: 1rem; margin-top: .5rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1600px; margin: 0 auto; gap: 0rem;">
 
     <!-- Logo Section -->
     <div style="flex: 1 1 200px;">
@@ -336,11 +355,11 @@
 
   </div>
 
-  <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; border-top: 1px solid #ffffff44; padding-top: 1rem;">
+  <div style="text-align: center; margin-top: 0.7rem; font-size: 0.9rem; border-top: 1px solid #ffffff44; padding-top: 0.7rem;">
     &copy; 2025 Pangasinan Polytechnic College – Registrar's Office. All rights reserved.
   </div>
 </footer>
-
+ 
 
 
 
