@@ -166,9 +166,10 @@ nav ul li a.active {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
 }
+
 .logo-title img {
-  height: 140px;         /* larger height */
-  width: 140px;          /* larger width */
+  height: 60px;
+  width: 60px;
   border-radius: 50%;    /* makes it circular */
   object-fit: cover;     /* keeps it clean inside the circle */
   border: 3px solid white;
@@ -176,15 +177,14 @@ nav ul li a.active {
   transition: transform 0.3s ease;
 }
 
-
-
 .logo-title:hover img {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
  ::selection {
   background: #326977;
   color: white;
 }
+
 .advisory-box {
   margin-top: 1rem;
   padding: 1rem;
@@ -246,3 +246,5 @@ nav ul li a.active {
   color: #b30000;
   font-size: 1.4rem;
 }
+
+
